@@ -9,42 +9,31 @@
  * @since Twenty Twenty-One 1.0
  */
 
-get_header();
-echo <h2> ovo je single file</h2>; //prikazuje se na file
-/* Start the Loop */
-while ( have_posts() ) :
-	the_post();
+get_header();?>
 
-	get_template_part( 'template-parts/content/content-single' );
+<div id="divContentSection3Wrap">
+		<div id="divContentSection3">
+			<h1 class="SectionTitle1">Istaknute novosti</h1>
+         <?php
+	          $counter = 1;
+              while (have_posts()):
+                 the_posts();
+         ?>
 
-	if ( is_attachment() ) {
-		// Parent post navigation.
-		the_post_navigation(
-			array(
-				/* translators: %s: Parent post link. */
-				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'twentytwentyone' ), '%title' ),
-			)
-		);
-	}
 
-	// If comments are open or there is at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
+			<div class="gridCol3 <?php if($counter%3==0) echo 'gridLastitem'; ?>">
+			<?php if ( has_post_thumbnail() ) : ?>
+             <?php the_post_thumbnail(); ?>
+                <?php else: ?>
+				<img src="https://via.placeholder.com/350">
+	   
+            <?php endif; ?>
+				<h2><?php the_title(); ?></h2>
+				<div><?php the_content(); ?></div>
+				<a href="<?php the_permalink(); ?>" >Procitajte više</a>
+			</div>
+			  <?php endwhile; ?>
+			<div style="clear: both;"></div>
+		</div>
 
-	// Previous/next post navigation.
-	$twentytwentyone_next = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' );
-	$twentytwentyone_prev = is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' );
-
-	$twentytwentyone_next_label     = esc_html__( 'Next post', 'twentytwentyone' );
-	$twentytwentyone_previous_label = esc_html__( 'Previous post', 'twentytwentyone' );
-
-	the_post_navigation(
-		array(
-			'next_text' => '<p class="meta-nav">' . $twentytwentyone_next_label . $twentytwentyone_next . '</p><p class="post-title">%title</p>',
-			'prev_text' => '<p class="meta-nav">' . $twentytwentyone_prev . $twentytwentyone_previous_label . '</p><p class="post-title">%title</p>',
-		)
-	);
-endwhile; // End of the loop.
-
-get_footer();
+ <?php get_footer();
