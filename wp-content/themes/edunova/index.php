@@ -108,7 +108,7 @@ get_header(); ?>
 	   
             <?php endif; ?>
 				<h2><?php the_title(); ?></h2>
-				<div><?php the_content(); ?></div>
+				<div><?php the_excerpt(); ?></div>
 				<a href="<?php the_permalink(); ?>" >Procitajte više</a>
 			</div>
 			  <?php endwhile; ?>
