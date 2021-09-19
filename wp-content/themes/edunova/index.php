@@ -94,12 +94,13 @@ get_header(); ?>
 		<div id="divContentSection3">
 			<h1 class="SectionTitle1">Istaknute novosti</h1>
          <?php
+	          $counter = 1;
               while (have_posts()):
                  the_posts();
          ?>
 
 
-			<div class="gridCol3">
+			<div class="gridCol3 <?php if($counter%3==0) echo 'gridLastitem'; ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
              <?php the_post_thumbnail(); ?>
                 <?php else: ?>
