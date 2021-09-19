@@ -10,7 +10,7 @@
  */
 
 get_header();
-echo <h2> ovo je single file</h2>;
+echo <h2> ovo je single file</h2>; //prikazuje se na file
 /* Start the Loop */
 while ( have_posts() ) :
 	the_post();
