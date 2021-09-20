@@ -122,8 +122,9 @@ get_header(); ?>
 			<h1 class="SectionTitle1">Novosti iz određene kategorije</h1>
          <?php
 	          $counter = 1;
-              while (have_posts()):
-                 the_posts();
+			  $vijestiIzKategorije = new WP_Query (array ('cat' => 2));
+              while ($vijestiIzKategorije->have_posts()):
+				$vijestiIzKategorije->the_posts();
          ?>
 
 
