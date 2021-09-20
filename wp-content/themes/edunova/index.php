@@ -91,7 +91,7 @@ get_header(); ?>
 		</div>
 	</div><!-- end #divContentSection2Wrap -->
 	<div id="divContentSection3Wrap">
-		<div id="divContentSection3">
+		<div id="divContentSection3" class=".divContentPostListing">
 			<h1 class="SectionTitle1">Istaknute novosti</h1>
          <?php
 	          $counter = 1;
@@ -111,8 +111,37 @@ get_header(); ?>
 				<div><?php the_excerpt(); ?></div>
 				<a href="<?php the_permalink(); ?>" >Procitajte više</a>
 			</div>
-			  <?php endwhile; ?>
+			<?php $counter //dva plus znaka
+		     endwhile; ?>
 			<div style="clear: both;"></div>
+		</div>
+		</div>
+
+		<div id="divContentSection4Wrap">
+		<div id="divContentSection4" class=".divContentPostListing">
+			<h1 class="SectionTitle1">Novosti iz određene kategorije</h1>
+         <?php
+	          $counter = 1;
+              while (have_posts()):
+                 the_posts();
+         ?>
+
+
+			<div class="gridCol3 <?php if($counter%3==0) echo 'gridLastitem'; ?>">
+			<?php if ( has_post_thumbnail() ) : ?>
+             <?php the_post_thumbnail(); ?>
+                <?php else: ?>
+				<img src="https://via.placeholder.com/350">
+	   
+            <?php endif; ?>
+				<h2><?php the_title(); ?></h2>
+				<div><?php the_excerpt(); ?></div>
+				<a href="<?php the_permalink(); ?>" >Procitajte više</a>
+			</div>
+			<?php $counter //dva plus znaka
+		     endwhile; ?>
+			<div style="clear: both;"></div>
+		</div>
 		</div>
 
 <?php get_footer(); ?>

@@ -33,7 +33,7 @@ body {
 	background-color: #F4F4F4;
 	color: #474747;
 }
-#divTopBar, #divMainMenu, #divHeader, #divContentSection1, #divContentSection2, #divContentSection3, #divFooter {
+#divTopBar, #divMainMenu, #divHeader, #divContentSection1, #divContentSection2, #divContentSection3, #divContentSection4, #divFooter {
 	width: 1200px;
 	margin: 0 auto;
 }
@@ -175,7 +175,7 @@ body {
 	line-height: 24px;
 	margin-bottom: 20px;
 }
-.listBoxStyle1 li a, #divContentSection3 div a {
+.listBoxStyle1 li a, .divContentPostListing div a {
 	color: #ffffff;
 	background-color: #FF3F4A;
 	padding: 10px 20px;
@@ -198,13 +198,13 @@ body {
 	margin-bottom: 50px;
 	text-transform: uppercase;
 }
-#divContentSection2 div h2, #divContentSection3 div h2 {
+#divContentSection2 div h2, .divContentPostListing div h2 {
 	text-transform: uppercase;
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 15px;
 }
-#divContentSection2 div p, #divContentSection3 div p {
+#divContentSection2 div p, .divContentPostListing div p {
 	font-size: 17px;
 	line-height: 24px;
 	margin-bottom: 40px;
@@ -225,7 +225,7 @@ body {
 	font-size: 20px;
 	font-weight: bold;
 }
-#divContentSection3 div img {
+.divContentPostListing div img {
 	width: 100%;
 	margin-bottom: 20px;
 }
