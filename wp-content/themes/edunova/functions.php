@@ -637,3 +637,14 @@ function twentytwentyone_add_ie_class() {
 	<?php
 }
 add_action( 'wp_footer', 'twentytwentyone_add_ie_class' );
+
+register_post_type('putovanje',
+array(
+	'labels'      => array(
+		'name'          => __('Putovanja', 'textdomain'),
+		'singular_name' => __('Putovanje', 'textdomain'),
+	),
+		'public'      => true,
+		'has_archive' => true,
+)
+);
