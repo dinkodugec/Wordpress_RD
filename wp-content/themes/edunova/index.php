@@ -94,7 +94,7 @@ get_header(); ?>
 		<div id="divContentSection3" class=".divContentPostListing">
 			<h1 class="SectionTitle1">Istaknute novosti</h1>
          <?php
-	          $counter = 1;
+	          $counter = 1;    // loop koji vrti novosti
               while (have_posts()):
                  the_posts();
          ?>
@@ -119,12 +119,40 @@ get_header(); ?>
 
 		<div id="divContentSection4Wrap">
 		<div id="divContentSection4" class=".divContentPostListing">
-			<h1 class="SectionTitle1">Novosti iz određene kategorije</h1>
+			<h1 class="SectionTitle1">Novosti iz kategorije sport ID 2</h1>
          <?php
 	          $counter = 1;
-			  $vijestiIzKategorije = new WP_Query (array ('cat' => 2));
+			  $vijestiIzKategorije = new WP_Query (array ('cat' => 2));//vrti kategoriju po id 2
               while ($vijestiIzKategorije->have_posts()):
 				$vijestiIzKategorije->the_posts();
+         ?>
+
+
+			<div class="gridCol3 <?php if($counter%3==0) echo 'gridLastitem'; ?>">
+			<?php if ( has_post_thumbnail() ) : ?>
+             <?php the_post_thumbnail(); ?>
+                <?php else: ?>
+				<img src="https://via.placeholder.com/350">
+	   
+            <?php endif; ?>
+				<h2><?php the_title(); ?></h2>
+				<div><?php the_excerpt(); ?></div>
+				<a href="<?php the_permalink(); ?>" >Procitajte više</a>
+			</div>
+			<?php $counter //dva plus znaka
+		     endwhile; ?>
+			<div style="clear: both;"></div>
+		</div>
+		</div>
+
+		<div id="divContentSection5Wrap">
+		<div id="divContentSection5" class=".divContentPostListing">
+			<h1 class="SectionTitle1">Novosti iz određenog tag-a </h1>
+         <?php
+	          $counter = 1;
+			  $myQuery1 = new WP_Query (array ('tag _id' => 4));
+              while ($myQuery1->have_posts()):
+				$myQuery1->the_posts();
          ?>
 
 
