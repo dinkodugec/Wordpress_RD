@@ -638,7 +638,7 @@ function twentytwentyone_add_ie_class() {
 }
 add_action( 'wp_footer', 'twentytwentyone_add_ie_class' );
 
-register_post_type('putovanje',
+/* register_post_type('putovanje', //slug - glavni okidac
 array(
 	'labels'      => array(
 		'name'          => __('Putovanja', 'textdomain'),
@@ -647,4 +647,4 @@ array(
 		'public'      => true,
 		'has_archive' => true,
 )
-);
+); */
